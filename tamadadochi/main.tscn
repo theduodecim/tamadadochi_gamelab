@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=3 uid="uid://bukvvhx5dolxy"]
+
+[ext_resource type="Texture2D" uid="uid://btorin5h5ffjp" path="res://assets/img/test/background.jpg" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://bfx7tfangiw06" path="res://assets/img/test/def_1.png" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://bw81x7tipex3u" path="res://main.gd" id="3_7mycd"]
+[ext_resource type="Texture2D" uid="uid://bds0lbtgn5m56" path="res://assets/img/test/def_2.png" id="3_lquwl"]
+[ext_resource type="Texture2D" uid="uid://swbgdutw6k83" path="res://assets/img/test/def_3.png" id="4_7mycd"]
+[ext_resource type="Theme" uid="uid://cfu7ugxyqltwc" path="res://main_theme.tres" id="6_7mycd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7mycd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_272bh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5vw27"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("3_7mycd")
+
+[node name="background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_ig7tw")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Node3D" type="Node3D" parent="Control"]
+
+[node name="Camera3D" type="Camera3D" parent="Control"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="EasyButton" type="TextureButton" parent="Node2D"]
+offset_left = 906.0
+offset_top = 126.0
+offset_right = 1306.0
+offset_bottom = 426.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("2_1bvp3")
+
+[node name="MediumButton" type="TextureButton" parent="Node2D"]
+offset_left = 470.0
+offset_top = 144.0
+offset_right = 870.0
+offset_bottom = 444.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("3_lquwl")
+
+[node name="HardButton" type="TextureButton" parent="Node2D"]
+offset_left = 500.0
+offset_top = 452.0
+offset_right = 900.0
+offset_bottom = 752.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("4_7mycd")
+
+[node name="DiceResult" type="Sprite2D" parent="."]
+
+[node name="DialogBox" type="Panel" parent="."]
+offset_left = 248.0
+offset_top = 535.0
+offset_right = 288.0
+offset_bottom = 575.0
+scale = Vector2(15.5492, 2.23188)
+theme = ExtResource("6_7mycd")
+
+[node name="Label" type="Label" parent="DialogBox"]
+layout_mode = 0
+offset_left = 3.02266
+offset_top = 7.16884
+offset_right = 352.023
+offset_bottom = 57.1688
+scale = Vector2(0.1, 0.5)
+theme = ExtResource("6_7mycd")
+text = "sdfasdsdasdasdasdasdadasdasdasdasd"
+label_settings = SubResource("LabelSettings_7mycd")
+autowrap_mode = 3
+justification_flags = 235
+
+[node name="StatPanel" type="Panel" parent="."]
+offset_left = 31.0
+offset_top = 375.0
+offset_right = 71.0
+offset_bottom = 415.0
+scale = Vector2(3.59045, 3.6056)
+theme = ExtResource("6_7mycd")
+
+[node name="rollingForLabel" type="Label" parent="StatPanel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 127.0
+offset_bottom = 77.0
+scale = Vector2(0.306, 0.185)
+theme = ExtResource("6_7mycd")
+text = "asdasdasasdasdaasdasaasdasd"
+label_settings = SubResource("LabelSettings_272bh")
+autowrap_mode = 3
+
+[node name="statLabel" type="Label" parent="StatPanel"]
+offset_left = 3.0
+offset_top = 19.0
+offset_right = 194.0
+offset_bottom = 91.0
+scale = Vector2(0.176, 0.262)
+theme = ExtResource("6_7mycd")
+text = "asdasfdasdas"
+label_settings = SubResource("LabelSettings_5vw27")
+autowrap_mode = 3
+
+[node name="dicePanel" type="Panel" parent="."]
+offset_left = 536.0
+offset_top = 268.0
+offset_right = 576.0
+offset_bottom = 308.0
+
+[node name="Label" type="Label" parent="dicePanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
