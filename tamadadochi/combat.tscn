@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhtgtwrde7te5"]
+
+[ext_resource type="Script" uid="uid://c64sm3dwr5046" path="res://combat.gd" id="1_raif2"]
+[ext_resource type="Texture2D" uid="uid://cyqdmetkmwfcc" path="res://assets/img/test/combate_bg.jpg" id="2_s0t75"]
+
+[node name="Combat" type="Node2D"]
+script = ExtResource("1_raif2")
+
+[node name="background" type="TextureRect" parent="."]
+offset_right = 1150.22
+offset_bottom = 647.0
+texture = ExtResource("2_s0t75")
+expand_mode = 3

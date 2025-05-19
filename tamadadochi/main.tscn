@@ -102,6 +102,7 @@ label_settings = SubResource("LabelSettings_272bh")
 autowrap_mode = 3
 
 [node name="statLabel" type="Label" parent="StatPanel"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 19.0
 offset_right = 194.0
