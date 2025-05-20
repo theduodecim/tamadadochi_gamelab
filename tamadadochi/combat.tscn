@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhtgtwrde7te5"]
+[gd_scene load_steps=9 format=3 uid="uid://dhtgtwrde7te5"]
 
 [ext_resource type="Script" uid="uid://c64sm3dwr5046" path="res://combat.gd" id="1_raif2"]
 [ext_resource type="Texture2D" uid="uid://cyqdmetkmwfcc" path="res://assets/img/test/combate_bg.jpg" id="2_s0t75"]
@@ -10,6 +10,10 @@ viewport_path = NodePath("Control/Node3D/SubViewport")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ga4lu"]
 font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_u30h6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fvoc2"]
 
 [node name="Combat" type="Node2D"]
 script = ExtResource("1_raif2")
@@ -71,3 +75,36 @@ text = "sdfasdsdasdasdasdasdadasdasdasdasd"
 label_settings = SubResource("LabelSettings_ga4lu")
 autowrap_mode = 3
 justification_flags = 235
+
+[node name="StatPanel" type="Panel" parent="."]
+offset_left = 31.0
+offset_top = 375.0
+offset_right = 71.0
+offset_bottom = 415.0
+scale = Vector2(3.59045, 3.6056)
+theme = ExtResource("3_ga4lu")
+
+[node name="rollingForLabel" type="Label" parent="StatPanel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 161.0
+offset_bottom = 107.0
+scale = Vector2(0.236, 0.142)
+theme = ExtResource("3_ga4lu")
+text = "asdsadasd"
+label_settings = SubResource("LabelSettings_u30h6")
+autowrap_mode = 3
+
+[node name="statLabel" type="Label" parent="StatPanel"]
+layout_mode = 0
+offset_left = 1.11407
+offset_top = 14.422
+offset_right = 327.114
+offset_bottom = 123.422
+scale = Vector2(0.116, 0.173)
+theme = ExtResource("3_ga4lu")
+theme_override_font_sizes/font_size = 0
+text = "asdasfdasdas"
+label_settings = SubResource("LabelSettings_fvoc2")
+autowrap_mode = 3
