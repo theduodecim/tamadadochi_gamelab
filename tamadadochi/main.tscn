@@ -48,7 +48,7 @@ theme = ExtResource("6_7mycd")
 transparent_bg = true
 
 [node name="Camera3D" type="Camera3D" parent="Control/Node3D/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75345, 3.73434)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.34893, 3.73434)
 
 [node name="BOSS" parent="Control/Node3D/SubViewport" instance=ExtResource("3_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0833777, 0.0569, 0.205497)
@@ -57,10 +57,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0833777, 0.0569, 0.205497)
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 0
-offset_left = 323.0
-offset_top = 47.0
-offset_right = 835.0
-offset_bottom = 559.0
+offset_left = 327.0
+offset_top = 8.0
+offset_right = 839.0
+offset_bottom = 520.0
 theme = ExtResource("6_7mycd")
 texture = SubResource("ViewportTexture_272bh")
 

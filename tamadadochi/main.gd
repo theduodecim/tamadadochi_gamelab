@@ -160,6 +160,11 @@ func _on_roll_button_pressed(difficulty: String):
 
 		# Verificar fin de semana
 		if day_count > 7:
+			GlobalStats.fuerza_level = get_level_from_exp(creature_stats["Fuerza"])
+			GlobalStats.magia_level = get_level_from_exp(creature_stats["Magia"])
+			GlobalStats.defensa_level = get_level_from_exp(creature_stats["Defensa"])
+
+
 			get_tree().change_scene_to_file("res://combat.tscn")
 			return
 
