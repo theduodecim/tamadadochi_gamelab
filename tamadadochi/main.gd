@@ -174,18 +174,18 @@ func _on_roll_button_pressed(difficulty: String):
 
 
 func get_level_from_exp(exp: int) -> int:
-	var level_thresholds = {
-		1: 30,
-		2: 45,
-		3: 60,
-		4: 75,
-		5: 90,
-		6: 105,
-		7: 120,
-		8: 135,
-		9: 150,
-		10: 165
-	}
+	var level_thresholds = { 		
+	1: 15,
+	2: 23,
+	3: 30,
+	4: 38,
+	5: 45,
+	6: 53,
+	7: 60,
+	8: 68,
+	9: 75,
+	10: 83
+}
 	
 	var level = 0
 	for lvl in level_thresholds.keys():

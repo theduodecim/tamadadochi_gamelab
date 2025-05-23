@@ -67,28 +67,28 @@ texture = SubResource("ViewportTexture_272bh")
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="EasyButton" type="TextureButton" parent="Node2D"]
-offset_left = 906.0
-offset_top = 126.0
-offset_right = 1306.0
-offset_bottom = 426.0
+offset_left = 809.0
+offset_top = 67.0
+offset_right = 1209.0
+offset_bottom = 367.0
 scale = Vector2(0.2, 0.2)
 theme = ExtResource("6_7mycd")
 texture_normal = ExtResource("2_1bvp3")
 
 [node name="MediumButton" type="TextureButton" parent="Node2D"]
-offset_left = 470.0
-offset_top = 144.0
-offset_right = 870.0
-offset_bottom = 444.0
+offset_left = 337.0
+offset_top = 408.0
+offset_right = 737.0
+offset_bottom = 708.0
 scale = Vector2(0.2, 0.2)
 theme = ExtResource("6_7mycd")
 texture_normal = ExtResource("3_lquwl")
 
 [node name="HardButton" type="TextureButton" parent="Node2D"]
-offset_left = 500.0
-offset_top = 452.0
-offset_right = 900.0
-offset_bottom = 752.0
+offset_left = 668.0
+offset_top = 144.0
+offset_right = 1068.0
+offset_bottom = 444.0
 scale = Vector2(0.2, 0.2)
 theme = ExtResource("6_7mycd")
 texture_normal = ExtResource("4_7mycd")

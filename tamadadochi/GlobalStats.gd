@@ -1,5 +1,5 @@
 extends Node
 
-var fuerza_level := 0
-var magia_level := 0
-var defensa_level := 0
+var fuerza_level := 3
+var magia_level := 1
+var defensa_level := 2
