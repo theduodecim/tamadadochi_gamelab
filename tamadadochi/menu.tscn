@@ -1,0 +1,161 @@
+[gd_scene load_steps=17 format=3 uid="uid://hbg1jnj0b8pk"]
+
+[ext_resource type="Script" uid="uid://ccuthn82sck32" path="res://menu.gd" id="1_07afv"]
+[ext_resource type="Texture2D" uid="uid://bjg1jk0ok0ar2" path="res://assets/img/menu_background.png" id="2_lxhk3"]
+[ext_resource type="Texture2D" uid="uid://bkag2jjnfyr2c" path="res://assets/img/menu/play.png" id="3_s73iy"]
+[ext_resource type="Texture2D" uid="uid://bxe2xolb23dae" path="res://assets/img/menu/play_active.png" id="4_dg2ov"]
+[ext_resource type="Theme" uid="uid://cfu7ugxyqltwc" path="res://main_theme.tres" id="5_kh2ry"]
+[ext_resource type="Texture2D" uid="uid://bfy1xfe6ufrw5" path="res://assets/img/menu/credits.png" id="6_tcd8c"]
+[ext_resource type="Texture2D" uid="uid://dppy54w7r1i21" path="res://assets/img/menu/credits_active.png" id="7_5ea1x"]
+[ext_resource type="Texture2D" uid="uid://cirswhx1slqrv" path="res://assets/img/menu/exit.png" id="8_nco0k"]
+[ext_resource type="Texture2D" uid="uid://bthbcst06eg74" path="res://assets/img/menu/exit_active.png" id="9_utmav"]
+
+[sub_resource type="Theme" id="Theme_sw2l5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_brq51"]
+texture = ExtResource("4_dg2ov")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2esvo"]
+texture = ExtResource("3_s73iy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_br06i"]
+texture = ExtResource("7_5ea1x")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dyfan"]
+texture = ExtResource("6_tcd8c")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m6x8d"]
+texture = ExtResource("9_utmav")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_piwja"]
+texture = ExtResource("8_nco0k")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_07afv")
+
+[node name="Sprite2D" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lxhk3")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -122.0
+offset_right = 83.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+focus_neighbor_top = NodePath("../Exit")
+theme = SubResource("Theme_sw2l5")
+theme_type_variation = &"MainButton"
+theme_override_styles/hover = SubResource("StyleBoxTexture_brq51")
+theme_override_styles/normal = SubResource("StyleBoxTexture_2esvo")
+
+[node name="Credits" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("5_kh2ry")
+theme_type_variation = &"MainButton"
+theme_override_styles/hover = SubResource("StyleBoxTexture_br06i")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dyfan")
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_bottom = NodePath("../Start")
+theme = ExtResource("5_kh2ry")
+theme_type_variation = &"MainButton"
+theme_override_styles/hover = SubResource("StyleBoxTexture_m6x8d")
+theme_override_styles/normal = SubResource("StyleBoxTexture_piwja")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -310.0
+offset_top = -177.0
+offset_right = -104.0
+offset_bottom = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Nacho_musica" type="Button" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Fox_2d")
+theme_type_variation = &"CreditButton"
+text = "Nacho (Audio)"
+
+[node name="Juan_Programador" type="Button" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_type_variation = &"CreditButton"
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+text = "Juan S (Programing) "
+
+[node name="Fox_2d" type="Button" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_bottom = NodePath("../Nacho_musica")
+theme_type_variation = &"CreditButton"
+text = "Fox (IA 2D Art Design)"
+
+[node name="Bel_3d" type="Button" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../Fox_2d")
+theme_type_variation = &"CreditButton"
+text = "Bel (3D Artist)"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/Nacho_musica" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/Juan_Programador" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/Fox_2d" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/Bel_3d" to="." method="_on_start_pressed"]
