@@ -25,20 +25,32 @@ var typing := false
 
 func _ready():
 	audio.play()
+	$skipBtn.pressed.connect(skip_dialoge)
 	$TextureButton.pressed.connect(_on_Button_pressed)
 	$name_box/Button.pressed.connect(_on_name_confirmed)
 	show_text(texts[current_index])
+
+func skip_dialoge():
+	typing = false  # This will now break the loop early
+
+	$name_box.visible = true
 
 func show_text(text: String):
 	narrative_label.text = ""
 	typing = true
 	var char_index := 0
-	await get_tree().create_timer(typewriter_speed).timeout
+	
 	while char_index < text.length():
+		if not typing:
+			narrative_label.text = "Pero primero darle un nombre..."
+			return
 		narrative_label.text += text[char_index]
 		char_index += 1
 		await get_tree().create_timer(typewriter_speed).timeout
+	
 	typing = false
+
+
 
 func _on_Button_pressed():
 	if typing: return

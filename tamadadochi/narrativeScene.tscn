@@ -89,3 +89,11 @@ layout_mode = 2
 [node name="Button" type="Button" parent="name_box"]
 layout_mode = 2
 text = "✔"
+
+[node name="skipBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 609.0
+offset_right = 1140.0
+offset_bottom = 640.0
+text = "skip"
