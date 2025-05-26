@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhtgtwrde7te5"]
+[gd_scene load_steps=12 format=3 uid="uid://dhtgtwrde7te5"]
 
 [ext_resource type="Script" uid="uid://c64sm3dwr5046" path="res://combat.gd" id="1_raif2"]
-[ext_resource type="Texture2D" uid="uid://cyqdmetkmwfcc" path="res://assets/img/test/combate_bg.jpg" id="2_s0t75"]
+[ext_resource type="Texture2D" uid="uid://6h3fb2nta6bt" path="res://assets/img/background_combate.png" id="2_u30h6"]
+[ext_resource type="PackedScene" uid="uid://btxdk54sjk2b2" path="res://assets/3d_model/heroe.glb" id="3_fvoc2"]
 [ext_resource type="Theme" uid="uid://cfu7ugxyqltwc" path="res://main_theme.tres" id="3_ga4lu"]
 [ext_resource type="PackedScene" uid="uid://puxxlbla6kkm" path="res://assets/3d_model/BOSS.glb" id="4_u30h6"]
 [ext_resource type="Script" uid="uid://cod4d5krehvy" path="res://OptionSelector.gd" id="5_u30h6"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_v7dqf"]
+viewport_path = NodePath("Control2/Node3D2/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_fvoc2"]
 viewport_path = NodePath("Control/Node3D/SubViewport")
@@ -28,7 +32,36 @@ offset_right = 1281.0
 offset_bottom = 722.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_s0t75")
+texture = ExtResource("2_u30h6")
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 3.0
+offset_right = 40.0
+offset_bottom = 43.0
+
+[node name="Node3D2" type="Node3D" parent="Control2"]
+
+[node name="SubViewport" type="SubViewport" parent="Control2/Node3D2"]
+transparent_bg = true
+
+[node name="Camera3D" type="Camera3D" parent="Control2/Node3D2/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.19786, 2.16972, 3.7791)
+
+[node name="heroe" parent="Control2/Node3D2/SubViewport" instance=ExtResource("3_fvoc2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.24763, 0, 0.268594)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Control2/Node3D2/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8116, 0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Control2"]
+layout_mode = 0
+offset_left = 787.0
+offset_top = -100.0
+offset_right = 1299.0
+offset_bottom = 412.0
+texture = SubResource("ViewportTexture_v7dqf")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -54,10 +87,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0833777, 0.0569, 0.205497)
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 0
-offset_left = -96.0
-offset_top = 207.0
-offset_right = 416.0
-offset_bottom = 719.0
+offset_left = -127.0
+offset_top = 163.0
+offset_right = 385.0
+offset_bottom = 675.0
 theme = ExtResource("3_ga4lu")
 texture = SubResource("ViewportTexture_fvoc2")
 
@@ -95,10 +128,10 @@ label_settings = SubResource("LabelSettings_fvoc2")
 autowrap_mode = 3
 
 [node name="CombatLogPanel" type="Panel" parent="."]
-offset_left = 957.0
-offset_top = 80.0
-offset_right = 997.0
-offset_bottom = 120.0
+offset_left = 975.0
+offset_top = 464.0
+offset_right = 1015.0
+offset_bottom = 504.0
 scale = Vector2(4.45216, 4.48)
 theme = ExtResource("3_ga4lu")
 
@@ -113,11 +146,11 @@ text = "l"
 tab_size = 3
 
 [node name="Panel" type="Panel" parent="."]
-offset_left = 158.0
-offset_top = 506.0
-offset_right = 458.0
-offset_bottom = 606.0
-scale = Vector2(3.30161, 1.40336)
+offset_left = 357.0
+offset_top = 545.0
+offset_right = 657.0
+offset_bottom = 645.0
+scale = Vector2(1.74161, 0.963361)
 theme = ExtResource("3_ga4lu")
 
 [node name="OptionSelector" type="Control" parent="Panel"]
