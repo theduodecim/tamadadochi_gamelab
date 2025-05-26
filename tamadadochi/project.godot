@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="tamadadochi"
-run/main_scene="uid://dhtgtwrde7te5"
+run/main_scene="uid://5sdan17i8cgu"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalStats="*res://GlobalStats.gd"
+GlobalVars="*res://GlobalVars.gd"
 
 [display]
 

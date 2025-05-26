@@ -11,6 +11,7 @@ var creature_stats = {
 var stat_order = ["Fuerza", "Magia", "Defensa"]
 var current_stat_index = 0
 var turn_count = 1  # Start from Turn 1
+var boss_name = GlobalVars.boss_name
 
 # Button references (TextureButtons)
 @onready var easy_button = $Node2D/EasyButton
@@ -30,6 +31,12 @@ var day_count = 1
 var turn_in_day = 1
 
 func _ready():
+	
+	if boss_name.is_empty():
+		boss_name = "¿Sin Nombre?"  # fallback
+	$BossNamePanel/Label.text = "Bienvenido, " + boss_name 
+	
+	
 	# Fetch rolling stat label
 	if has_node("StatPanel/rollingForLabel"):
 		rollingForLabel = get_node("StatPanel/rollingForLabel")
@@ -160,9 +167,9 @@ func _on_roll_button_pressed(difficulty: String):
 
 		# Verificar fin de semana
 		if day_count > 7:
-			GlobalStats.fuerza_level = get_level_from_exp(creature_stats["Fuerza"])
-			GlobalStats.magia_level = get_level_from_exp(creature_stats["Magia"])
-			GlobalStats.defensa_level = get_level_from_exp(creature_stats["Defensa"])
+			GlobalVars.fuerza_level = get_level_from_exp(creature_stats["Fuerza"])
+			GlobalVars.magia_level = get_level_from_exp(creature_stats["Magia"])
+			GlobalVars.defensa_level = get_level_from_exp(creature_stats["Defensa"])
 
 
 			get_tree().change_scene_to_file("res://combat.tscn")

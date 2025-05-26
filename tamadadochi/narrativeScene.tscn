@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://5sdan17i8cgu"]
+
+[ext_resource type="Script" uid="uid://cpta0oy1mbrhv" path="res://narrativeScene.gd" id="1_nx4x6"]
+[ext_resource type="Theme" uid="uid://cfu7ugxyqltwc" path="res://main_theme.tres" id="2_o7a3o"]
+[ext_resource type="Texture2D" uid="uid://7o6g3sjand66" path="res://assets/icons/puntero_1.svg" id="3_c5jh5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q7ds4"]
+
+[node name="NarrativeScene_tscn" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_nx4x6")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.88, 1.15732)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.76, 16.16)
+color = Color(0, 0, 0, 0.188235)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 233.0
+offset_top = 221.0
+offset_right = 1033.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.845421, 1.99151)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(800, 100)
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="NarrativeLabel" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_o7a3o")
+label_settings = SubResource("LabelSettings_q7ds4")
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 1063.0
+offset_top = 576.0
+offset_right = 1127.0
+offset_bottom = 640.355
+texture_normal = ExtResource("3_c5jh5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="name_box" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 636.0
+offset_top = 385.0
+offset_right = 795.0
+offset_bottom = 416.0
+scale = Vector2(2.62108, 0.976473)
+
+[node name="LineEdit" type="LineEdit" parent="name_box"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="name_box"]
+layout_mode = 2
+text = "✔"

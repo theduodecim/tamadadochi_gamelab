@@ -22,9 +22,9 @@ func show_options(scenario: Dictionary, locked: String):
 
 	var dice := " 🎲"
 
-	fuerza_button.text = "%s [%d]%s" % [current_options["Fuerza"], GlobalStats.fuerza_level, dice]
-	magia_button.text = "%s [%d]%s" % [current_options["Magia"], GlobalStats.magia_level, dice]
-	defensa_button.text = "%s [%d]%s" % [current_options["Defensa"], GlobalStats.defensa_level, dice]
+	fuerza_button.text = "%s [%d]%s" % [current_options["Fuerza"], GlobalVars.fuerza_level, dice]
+	magia_button.text = "%s [%d]%s" % [current_options["Magia"], GlobalVars.magia_level, dice]
+	defensa_button.text = "%s [%d]%s" % [current_options["Defensa"], GlobalVars.defensa_level, dice]
 
 	fuerza_button.disabled = locked == "Fuerza"
 	magia_button.disabled = locked == "Magia"

@@ -21,9 +21,9 @@ func _ready():
 
 	if stat_label:
 		stat_label.text = "💥 Stats :\nFuerza: %d\nMagia: %d\nDefensa: %d" % [
-			GlobalStats.fuerza_level,
-			GlobalStats.magia_level,
-			GlobalStats.defensa_level
+			GlobalVars.fuerza_level,
+			GlobalVars.magia_level,
+			GlobalVars.defensa_level
 		]
 
 func print_to_combat_log(message: String):
@@ -65,11 +65,11 @@ func _on_option_selected(option: String):
 
 	match option:
 		"Fuerza":
-			stat_bonus = GlobalStats.fuerza_level
+			stat_bonus = GlobalVars.fuerza_level
 		"Magia":
-			stat_bonus = GlobalStats.magia_level
+			stat_bonus = GlobalVars.magia_level
 		"Defensa":
-			stat_bonus = GlobalStats.defensa_level
+			stat_bonus = GlobalVars.defensa_level
 
 	var roll := randi_range(1, 20)
 	var total := roll + stat_bonus

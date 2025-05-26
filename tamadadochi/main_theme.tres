@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://dqhnvcxigxgq6" path="res://assets/fonts/Pokemon Classic.ttf" id="1_470mv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsqoc"]
-bg_color = Color(0.218851, 0.269792, 0.316976, 1)
+bg_color = Color(0, 0, 0, 0.666667)
 border_width_top = 1
 border_width_bottom = 1
 corner_detail = 4
