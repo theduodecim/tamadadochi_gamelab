@@ -15,6 +15,7 @@ var CombatScenarios = load("res://CombatScenarios.gd").new()
 var scenarios := []
 
 func _ready():
+	$AudioStreamPlayer.play();
 	randomize()
 	scenarios = CombatScenarios.list.duplicate()
 	next_turn()

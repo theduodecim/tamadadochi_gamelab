@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://5sdan17i8cgu"]
+[gd_scene load_steps=6 format=3 uid="uid://5sdan17i8cgu"]
 
 [ext_resource type="Script" uid="uid://cpta0oy1mbrhv" path="res://narrativeScene.gd" id="1_nx4x6"]
 [ext_resource type="Theme" uid="uid://cfu7ugxyqltwc" path="res://main_theme.tres" id="2_o7a3o"]
 [ext_resource type="Texture2D" uid="uid://7o6g3sjand66" path="res://assets/icons/puntero_1.svg" id="3_c5jh5"]
+[ext_resource type="AudioStream" uid="uid://4r2i5ukjyloq" path="res://assets/music/background_music_main.mp3" id="4_o7a3o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q7ds4"]
 
@@ -61,15 +62,20 @@ autowrap_mode = 3
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 2
-offset_left = 1063.0
-offset_top = 576.0
-offset_right = 1127.0
-offset_bottom = 640.355
+offset_left = 140.0
+offset_top = 310.0
+offset_right = 204.0
+offset_bottom = 374.0
+rotation = -0.734703
 texture_normal = ExtResource("3_c5jh5")
+flip_h = true
+flip_v = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_o7a3o")
 
 [node name="name_box" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 636.0
 offset_top = 385.0

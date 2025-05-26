@@ -31,10 +31,10 @@ var day_count = 1
 var turn_in_day = 1
 
 func _ready():
-	
+	$AudioStreamPlayer.play();
 	if boss_name.is_empty():
 		boss_name = "¿Sin Nombre?"  # fallback
-	$BossNamePanel/Label.text = "Bienvenido, " + boss_name 
+	$BossNamePanel/Label.text = "Bienvenido\n" + boss_name
 	
 	
 	# Fetch rolling stat label
