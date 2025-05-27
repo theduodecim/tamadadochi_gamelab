@@ -4,6 +4,11 @@ extends Node
 @onready var rolling_label: Label = $StatPanel/rollingForLabel
 @onready var option_selector := $Panel/OptionSelector
 @onready var combat_log: RichTextLabel = $CombatLogPanel/RichTextLabel
+@onready var endPanel: Panel = $EndPanel
+@onready var endPanelBTN: Button = $EndPanel/Button
+@onready var endPanelLabel: Label = $EndPanel/Label
+
+
 
 var enemy_hp := 40
 var turn := 0
@@ -15,6 +20,7 @@ var CombatScenarios = load("res://CombatScenarios.gd").new()
 var scenarios := []
 
 func _ready():
+	endPanelBTN.pressed.connect(endGame)
 	$AudioStreamPlayer.play();
 	randomize()
 	scenarios = CombatScenarios.list.duplicate()
@@ -88,6 +94,8 @@ func _on_option_selected(option: String):
 func check_game_result():
 	if enemy_hp <= 0:
 		print_to_combat_log("🏆 ¡Victoria!")
+		endPanelLabel.text = "🏆 ¡Victoria!"
+		endPanel.visible = true
 	elif retries > 0:
 		print_to_combat_log("🔁 Segundo intento disponible")
 		retries -= 1
@@ -99,3 +107,14 @@ func check_game_result():
 	else:
 		print_to_combat_log("💀 Game Over")
 		rolling_label.text = "☠️ Derrota final"
+		endPanelLabel.text = "💀 Game Over"
+		endPanel.visible = true
+		
+func endGame():
+		get_tree().change_scene_to_file("res://menu.tscn")
+	
+		
+		
+		
+		
+		

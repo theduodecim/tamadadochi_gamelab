@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dhtgtwrde7te5"]
+[gd_scene load_steps=15 format=3 uid="uid://dhtgtwrde7te5"]
 
 [ext_resource type="Script" uid="uid://c64sm3dwr5046" path="res://combat.gd" id="1_raif2"]
 [ext_resource type="Texture2D" uid="uid://6h3fb2nta6bt" path="res://assets/img/background_combate.png" id="2_u30h6"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://puxxlbla6kkm" path="res://assets/3d_model/BOSS.glb" id="4_u30h6"]
 [ext_resource type="Script" uid="uid://cod4d5krehvy" path="res://OptionSelector.gd" id="5_u30h6"]
 [ext_resource type="AudioStream" uid="uid://cs6qetwp6rjbg" path="res://assets/music/background_music_combat.mp3" id="7_v7dqf"]
+[ext_resource type="FontFile" uid="uid://dqhnvcxigxgq6" path="res://assets/fonts/Pokemon Classic.ttf" id="8_syqip"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_v7dqf"]
 viewport_path = NodePath("Control2/Node3D2/SubViewport")
@@ -19,6 +20,9 @@ viewport_path = NodePath("Control/Node3D/SubViewport")
 [sub_resource type="LabelSettings" id="LabelSettings_fvoc2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v7dqf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ilamk"]
+font = ExtResource("8_syqip")
 
 [node name="Combat" type="Node2D"]
 script = ExtResource("1_raif2")
@@ -208,3 +212,27 @@ alignment = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_v7dqf")
+
+[node name="EndPanel" type="Panel" parent="."]
+visible = false
+offset_left = 634.0
+offset_top = 231.0
+offset_right = 804.0
+offset_bottom = 331.0
+
+[node name="Label" type="Label" parent="EndPanel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 15.0
+offset_right = 172.0
+offset_bottom = 38.0
+label_settings = SubResource("LabelSettings_ilamk")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="EndPanel"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 47.0
+offset_right = 131.0
+offset_bottom = 78.0
+text = "Main Menu"

@@ -8,7 +8,7 @@ func _ready():
 
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://main.tscn") # Replace with function body. aca hay que checkear la escena
+	get_tree().change_scene_to_file("res://narrativeScene.tscn") # Replace with function body. aca hay que checkear la escena
 
 
 func _on_exit_pressed():
