@@ -152,6 +152,14 @@ focus_neighbor_top = NodePath("../Fox_2d")
 theme_type_variation = &"CreditButton"
 text = "Bel (3D Artist)"
 
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Micky (Game Designer)"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Frann (Game Producer) "
+
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
