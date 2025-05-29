@@ -142,7 +142,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_neighbor_bottom = NodePath("../Nacho_musica")
 theme_type_variation = &"CreditButton"
-text = "Fox (IA 2D Art Design)"
+text = "Fox (2D Art Design)"
 
 [node name="Bel_3d" type="Button" parent="MarginContainer/VBoxContainer2"]
 layout_mode = 2
