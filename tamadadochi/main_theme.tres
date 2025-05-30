@@ -10,6 +10,7 @@ corner_detail = 4
 anti_aliasing = false
 
 [resource]
-Label/font_sizes/font_size = 1
+default_font = ExtResource("1_470mv")
+Label/font_sizes/font_size = 4
 Label/fonts/font = ExtResource("1_470mv")
 Panel/styles/panel = SubResource("StyleBoxFlat_gsqoc")

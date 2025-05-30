@@ -27,7 +27,7 @@ func _ready():
 	next_turn()
 
 	if stat_label:
-		stat_label.text = "💥 Stats :\nFuerza: %d\nMagia: %d\nDefensa: %d" % [
+		stat_label.text = "Stats :\nFuerza: %d\nMagia: %d\nDefensa: %d" % [
 			GlobalVars.fuerza_level,
 			GlobalVars.magia_level,
 			GlobalVars.defensa_level
@@ -57,14 +57,14 @@ func next_turn():
 
 	# Mostrar turno y si es el último intento
 	if retries == 0:
-		rolling_label.text = "⚠️ Última oportunidad - Turno %d" % turn
+		rolling_label.text = "Última oportunidad - Turno %d" % turn
 	else:
 		rolling_label.text = "Turno %d" % turn
 
 	current_difficulty = get_difficulty_for_turn(turn)
 
 	var scenario = scenarios.pick_random()
-	option_selector.show_options(scenario, used_option)
+	option_selector.show_options(scenario, used_option, current_difficulty)
 	option_selector.option_selected.connect(_on_option_selected, CONNECT_ONE_SHOT)
 
 func _on_option_selected(option: String):
@@ -80,24 +80,24 @@ func _on_option_selected(option: String):
 
 	var roll := randi_range(1, 20)
 	var total := roll + stat_bonus
-	print_to_combat_log("🎲 Tirada: %d + bonificación %d = %d (Dif %d)" % [roll, stat_bonus, total, current_difficulty])
+	print_to_combat_log("Tirada: %d + bonificación %d = %d (Dif %d)" % [roll, stat_bonus, total, current_difficulty])
 
 	if total >= current_difficulty:
-		print_to_combat_log("✅ Éxito: daño infligido al enemigo")
+		print_to_combat_log("Éxito: daño infligido al enemigo")
 		enemy_hp -= 10
 	else:
-		print_to_combat_log("❌ Fallo: opción '%s' bloqueada para el próximo turno" % option)
+		print_to_combat_log("Fallo: opción '%s' bloqueada para el próximo turno" % option)
 
 	used_option = option
 	next_turn()
 
 func check_game_result():
 	if enemy_hp <= 0:
-		print_to_combat_log("🏆 ¡Victoria!")
-		endPanelLabel.text = "🏆 ¡Victoria!"
+		print_to_combat_log("¡Victoria!")
+		endPanelLabel.text = "¡Victoria!"
 		endPanel.visible = true
 	elif retries > 0:
-		print_to_combat_log("🔁 Segundo intento disponible")
+		print_to_combat_log("Segundo intento disponible")
 		retries -= 1
 		enemy_hp = 40
 		turn = 0
@@ -105,9 +105,9 @@ func check_game_result():
 		rolling_label.text = ""  # Reiniciar etiqueta
 		next_turn()
 	else:
-		print_to_combat_log("💀 Game Over")
-		rolling_label.text = "☠️ Derrota final"
-		endPanelLabel.text = "💀 Game Over"
+		print_to_combat_log("Game Over")
+		rolling_label.text = "Derrota final"
+		endPanelLabel.text = "Game Over"
 		endPanel.visible = true
 		
 func endGame():

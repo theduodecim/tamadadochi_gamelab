@@ -1,7 +1,7 @@
 extends Control
 
 signal option_selected(option_type: String)
-
+@onready var diff_info := $VBoxContainer/diff_info
 @onready var description_label := $VBoxContainer/Description
 @onready var fuerza_button := $VBoxContainer/HBoxContainer3/FuerzaButton
 @onready var magia_button := $VBoxContainer/HBoxContainer2/MagiaButton
@@ -15,12 +15,13 @@ func _ready():
 	magia_button.pressed.connect(_on_MagiaButton_pressed)
 	defensa_button.pressed.connect(_on_DefensaButton_pressed)
 
-func show_options(scenario: Dictionary, locked: String):
+func show_options(scenario: Dictionary, locked: String, difficulty: int):
 	locked_option = locked
 	description_label.text = scenario["description"]
+	diff_info.text = "Dificultad del turno: %d" % difficulty
 	current_options = scenario["options"]
 
-	var dice := " 🎲"
+	var dice := " "
 
 	fuerza_button.text = "%s [%d]%s" % [current_options["Fuerza"], GlobalVars.fuerza_level, dice]
 	magia_button.text = "%s [%d]%s" % [current_options["Magia"], GlobalVars.magia_level, dice]
@@ -29,6 +30,7 @@ func show_options(scenario: Dictionary, locked: String):
 	fuerza_button.disabled = locked == "Fuerza"
 	magia_button.disabled = locked == "Magia"
 	defensa_button.disabled = locked == "Defensa"
+
 
 
 func _on_FuerzaButton_pressed():

@@ -26,8 +26,9 @@ var typing := false
 func _ready():
 	audio.play()
 	$skipBtn.pressed.connect(skip_dialoge)
-	$TextureButton.pressed.connect(_on_Button_pressed)
+	$next_btn.pressed.connect(_on_Button_pressed)
 	$name_box/Button.pressed.connect(_on_name_confirmed)
+	
 	show_text(texts[current_index])
 
 func skip_dialoge():

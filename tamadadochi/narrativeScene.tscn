@@ -9,7 +9,11 @@
 
 [node name="NarrativeScene_tscn" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_nx4x6")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -32,16 +36,17 @@ color = Color(0, 0, 0, 0.188235)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 233.0
-offset_top = 221.0
-offset_right = 1033.0
-offset_bottom = 321.0
+offset_left = 225.0
+offset_top = 103.0
+offset_right = -39.0
+offset_bottom = -330.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.845421, 1.99151)
+alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 clip_contents = true
@@ -74,17 +79,32 @@ flip_v = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_o7a3o")
 
+[node name="next_btn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
 [node name="name_box" type="HBoxContainer" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 636.0
-offset_top = 385.0
-offset_right = 795.0
-offset_bottom = 416.0
-scale = Vector2(2.62108, 0.976473)
+offset_left = 575.0
+offset_top = 382.0
+offset_right = 775.0
+offset_bottom = 413.0
 
 [node name="LineEdit" type="LineEdit" parent="name_box"]
 layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Nombre"
+max_length = 10
 
 [node name="Button" type="Button" parent="name_box"]
 layout_mode = 2

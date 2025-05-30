@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="tamadadochi"
-run/main_scene="uid://hbg1jnj0b8pk"
+run/main_scene="uid://bukvvhx5dolxy"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

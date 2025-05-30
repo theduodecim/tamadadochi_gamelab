@@ -54,134 +54,6 @@ tracks/0/keys = {
 "values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.148353, 1.53802, 0.0174533)]
 }
 
-[sub_resource type="Animation" id="Animation_dg77c"]
-resource_name = "roll_2"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DADO:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.148353, 5.4559, 0.0174533)]
-}
-
-[sub_resource type="Animation" id="Animation_ycdy4"]
-resource_name = "roll_3"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DADO:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(3.44528, -5.26217, -0.472984)]
-}
-
-[sub_resource type="Animation" id="Animation_w48qg"]
-resource_name = "roll_4"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DADO:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(-4.44535, -6.28319, 0.418879)]
-}
-
-[sub_resource type="Animation" id="Animation_vivmo"]
-resource_name = "roll_5"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DADO:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.148353, -0.963422, 4.69668)]
-}
-
-[sub_resource type="Animation" id="Animation_2cqfq"]
-resource_name = "roll_6"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DADO:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.553269, -3.32485, -2.38936)]
-}
-
-[sub_resource type="Animation" id="Animation_yaehf"]
-resource_name = "roll_7"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DADO:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.553269, 0.591667, -0.785398)]
-}
-
-[sub_resource type="Animation" id="Animation_074og"]
-resource_name = "roll_8"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DADO:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(-3.36499, -1.57429, -5.59727)]
-}
-
-[sub_resource type="Animation" id="Animation_cegan"]
-resource_name = "roll_9"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DADO:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.418879, -3.58142, -4.79442)]
-}
-
 [sub_resource type="Animation" id="Animation_82xsv"]
 resource_name = "roll_10"
 length = 3.0
@@ -342,6 +214,22 @@ tracks/0/keys = {
 "values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(-5.39132, -3.66519, -5.40528)]
 }
 
+[sub_resource type="Animation" id="Animation_dg77c"]
+resource_name = "roll_2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.148353, 5.4559, 0.0174533)]
+}
+
 [sub_resource type="Animation" id="Animation_kq58d"]
 resource_name = "roll_20"
 length = 3.0
@@ -356,6 +244,118 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(-3.2306, -4.70192, 3.05607)]
+}
+
+[sub_resource type="Animation" id="Animation_ycdy4"]
+resource_name = "roll_3"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(3.44528, -5.26217, -0.472984)]
+}
+
+[sub_resource type="Animation" id="Animation_w48qg"]
+resource_name = "roll_4"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(-4.44535, -6.28319, 0.418879)]
+}
+
+[sub_resource type="Animation" id="Animation_vivmo"]
+resource_name = "roll_5"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.148353, -0.963422, 4.69668)]
+}
+
+[sub_resource type="Animation" id="Animation_2cqfq"]
+resource_name = "roll_6"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.553269, -3.32485, -2.38936)]
+}
+
+[sub_resource type="Animation" id="Animation_yaehf"]
+resource_name = "roll_7"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.553269, 0.591667, -0.785398)]
+}
+
+[sub_resource type="Animation" id="Animation_074og"]
+resource_name = "roll_8"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(-3.36499, -1.57429, -5.59727)]
+}
+
+[sub_resource type="Animation" id="Animation_cegan"]
+resource_name = "roll_9"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.418879, -3.58142, -4.79442)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_efxa6"]
@@ -434,10 +434,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0833777, 0.0569, 0.205497)
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 0
-offset_left = 327.0
-offset_top = 8.0
-offset_right = 839.0
-offset_bottom = 520.0
+offset_left = 455.0
+offset_top = 242.0
+offset_right = 967.0
+offset_bottom = 754.0
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("6_7mycd")
 texture = SubResource("ViewportTexture_272bh")
 
@@ -473,10 +474,10 @@ texture_normal = ExtResource("4_7mycd")
 [node name="DiceResult" type="Sprite2D" parent="."]
 
 [node name="DialogBox" type="Panel" parent="."]
-offset_left = 275.0
-offset_top = 10.0
-offset_right = 315.0
-offset_bottom = 50.0
+offset_left = 297.0
+offset_top = 25.0
+offset_right = 337.0
+offset_bottom = 65.0
 scale = Vector2(15.5492, 2.23188)
 theme = ExtResource("6_7mycd")
 
@@ -524,10 +525,10 @@ label_settings = SubResource("LabelSettings_5vw27")
 autowrap_mode = 3
 
 [node name="dicePanel" type="Panel" parent="."]
-offset_left = 540.0
-offset_top = 183.0
-offset_right = 643.0
-offset_bottom = 271.0
+offset_left = 537.0
+offset_top = 174.0
+offset_right = 640.0
+offset_bottom = 262.0
 theme = ExtResource("6_7mycd")
 
 [node name="Node3D" type="Node3D" parent="dicePanel"]
@@ -542,7 +543,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.36123, 1.06291, 3.63204)
 current = true
 
 [node name="DADO" parent="dicePanel/Node3D/DiceSubViewport" instance=ExtResource("9_4c57u")]
-transform = Transform3D(0.674874, -0.120599, -0.728012, 0.0172607, 0.988865, -0.147809, 0.737731, 0.0871867, 0.669441, -8.414, 0.904, 0.314)
+transform = Transform3D(0.674875, -0.120599, -0.728011, 0.0172607, 0.988865, -0.147809, 0.73773, 0.0871868, 0.669442, -8.414, 0.904, 0.314)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="dicePanel/Node3D/DiceSubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.30598, 0, 0)
@@ -554,10 +555,10 @@ libraries = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="dicePanel/Node3D"]
-offset_left = 540.0
-offset_top = 171.0
-offset_right = 1052.0
-offset_bottom = 683.0
+offset_left = 479.0
+offset_top = 71.0
+offset_right = 1479.0
+offset_bottom = 1071.0
 scale = Vector2(0.2, 0.2)
 texture = SubResource("ViewportTexture_4c57u")
 
