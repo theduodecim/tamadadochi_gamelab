@@ -173,13 +173,11 @@ alignment = 1
 [node name="diff_info" type="Label" parent="Panel/OptionSelector/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_ga4lu")
-text = "dfdsfdsfd"
 label_settings = SubResource("LabelSettings_syqip")
 
 [node name="Description" type="Label" parent="Panel/OptionSelector/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_ga4lu")
-text = "dsfdsfdsfdsfdsfdsfds"
 label_settings = SubResource("LabelSettings_v7dqf")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -34,6 +34,14 @@ var boss_name = GlobalVars.boss_name
 @onready var animation_dice = $dicePanel/Node3D/DiceSubViewport/AnimationPlayer
 
 @onready var dice_subViewport = $dicePanel/Node3D/DiceSubViewport
+@onready var dice_textureRect = $dicePanel/Node3D/TextureRect
+
+
+#audio
+@onready var audio_acierto = $AudioStreamPlayer_Acierto
+@onready var audio_falla = $AudioStreamPlayer_Falla
+
+
 signal roll_finished
 # Optional labels
 var rollingForLabel : Label = null
@@ -262,20 +270,25 @@ func start_roll(difficulty: String):
 		creature_stats[stat] += exp_gained
 
 	#dice_result_label.text = "🎲Tirada:" + "\n"  + " %s  %d < %d " % [difficulty, roll, threshold]#"🎲 Tirada: %d" % roll  + "\n"  + difficulty + ": %d" % [difficulty, threshold]
+	dice_textureRect.visible = true
 	roll_dice_animation(roll)
 	#dice_result_label.visible = true
 	await get_tree().create_timer(3.0).timeout
 	if success:
+		audio_acierto.play()
 		dialog_label.text = "🎲Tirada:" + " %d " % roll + "\n" + "¡%s +%d puntos de experiencia (%s)!" % [stat, exp_gained, difficulty]
 	else:
+		audio_falla.play()
 		dialog_label.text = "Fallaste la tirada de %s (Tirada: %d < %d). No ganaste experiencia." % [difficulty, roll, threshold]
 
 	dialog_panel.visible = true
-
+	#await get_tree().create_timer(3.0).timeout
+	#dice_textureRect.visible = false
 	
 
 	#dice_result_label.visible = false
 	#dialog_panel.visible = false
+	
 
 	current_stat_index = (current_stat_index + 1) % stat_order.size()
 	turn_in_day += 1
