@@ -23,7 +23,7 @@ var boss_name = GlobalVars.boss_name
 # UI references
 @onready var dice_result_label = $dicePanel/Label
 @onready var dialog_panel = $DialogBox
-@onready var dialog_label = $DialogBox/Label
+@onready var dialog_label = $DialogBox/VBoxContainer/Label
 
 #Narrative BTN
 @onready var EasyButton = $Narrative_control/DescriptionPanel/OptionsContainer/EasyButton
@@ -40,43 +40,58 @@ var boss_name = GlobalVars.boss_name
 #audio
 @onready var audio_acierto = $AudioStreamPlayer_Acierto
 @onready var audio_falla = $AudioStreamPlayer_Falla
+@onready var AudioStreamPlayer_dice = $AudioStreamPlayer_dice
+var Rolling_dice = preload("res://assets/music/Rolling_dice2.mp3")
+var Rolling_dice2 = preload("res://assets/music/Rolling_dice.mp3")
+#turn indicators
+@onready var needle_sprite = $TurnIndicator/NeedleSprite
+@onready var day_indicator = $TurnIndicator/day_indicator
 
+@onready var str_indicator = $TurnIndicator/Str_indicator
+@onready var def_indicator = $TurnIndicator/Def_indicator
+@onready var mag_indicator = $TurnIndicator/Mag_indicator
+
+#intro panel
+@onready var intro_panel = $IntroPanel
+@onready var intro_text = $IntroPanel/MarginContainer/VBoxContainer/IntroText
+@onready var continue_button = $IntroPanel/MarginContainer/VBoxContainer/ContinueButton
 
 signal roll_finished
 # Optional labels
-var rollingForLabel : Label = null
+@onready var rollingForLabel = $Narrative_control/DescriptionPanel/rollingForLabel
 var stat_label : Label = null
 # Nuevas variables
 var day_count = 1
 var turn_in_day = 1
 
 func _ready():
-	
-	
-	show_roll_narrative()
-	$AudioStreamPlayer.play();
+	$AudioStreamPlayer.play()
+
+	# Ocultar panel de opciones narrativas por ahora
+	DescriptionPanel.visible = false
+
 	if boss_name.is_empty():
-		boss_name = "¿Sin Nombre?"  # fallback
+		boss_name = "¿Sin Nombre?"
 	$BossNamePanel/Label.text = "Bienvenido\n" + boss_name
-	
-	
-	# Fetch rolling stat label
-	if has_node("StatPanel/rollingForLabel"):
-		rollingForLabel = get_node("StatPanel/rollingForLabel")
-		print_debug("✅ rollingForLabel loaded successfully")
-	else:
-		print_debug("⚠️ rollingForLabel not found — text display will be skipped")
 
-	# Fetch full stat summary label
-	if has_node("StatPanel/statLabel"):
-		stat_label = get_node("StatPanel/statLabel")
-		print_debug("✅ statLabel loaded successfully")
-	else:
-		print_debug("⚠️ statLabel not found — stat summary will be skipped")
+	# Mostrar texto de introducción
+	intro_text.text = "Día uno\nAhora... ¿Qué se supone que deberia hacer con %s? No es que este muy negativo al respecto, sin embargo, es la primera vez que me veo en la necesidad de cuidar a otro ser vivo.\nApenas suelo sobrevivir por mi cuenta. Quizás esto sea más complicado de lo que creía en un principio pero la simple idea de tener una vida comoda y segura vale la pena cualquier intento.\nPuede que ahora yo sea su unico medio de supervivencia, sin embargo, él sera la mia en el futuro.\nTeniendo en cuenta aquello, deberiamos empezar con su entrenamiento lo antes posible ¿Qué puede salir mal de darle un arma a un bebé monstruo?" % boss_name
 
-	update_stat_display()
+	intro_panel.visible = true
+	continue_button.pressed.connect(_on_continue_pressed)
+
+	if stat_label:
+		stat_label.text = "..."
+
 	setup_button_signals()
-	
+	update_stat_display()
+	update_level_indicators()
+	update_needle_frame()
+
+func _on_continue_pressed():
+	intro_panel.visible = false
+	show_roll_narrative()  # ← Ahora sí inicia el sistema de opciones
+		
 func roll_dice_animation(value: int) -> void:
 	print("🎲 Waiting before playing animation...")
 
@@ -108,7 +123,7 @@ func roll_dice_animation(value: int) -> void:
 func update_stat_display():
 	if rollingForLabel:
 		var current_stat = stat_order[current_stat_index]
-		rollingForLabel.text = "Día %d - Turno %d - Tirada por: %s" % [day_count, turn_in_day, current_stat]
+		rollingForLabel.text = "Tirada por: %s" % [current_stat]
 
 	if stat_label:
 		var translated = {
@@ -135,16 +150,16 @@ func setup_button_signals():
 	if HardButton.pressed.is_connected(_on_hard_button_pressed):
 		HardButton.pressed.disconnect(_on_hard_button_pressed)
 		
-	if easy_button.pressed.is_connected(_on_roll_button_pressed):
-		easy_button.pressed.disconnect(_on_roll_button_pressed)
-	if medium_button.pressed.is_connected(_on_roll_button_pressed):
-		medium_button.pressed.disconnect(_on_roll_button_pressed)
-	if hard_button.pressed.is_connected(_on_roll_button_pressed):
-		hard_button.pressed.disconnect(_on_roll_button_pressed)
+	#if easy_button.pressed.is_connected(_on_roll_button_pressed):
+	#	easy_button.pressed.disconnect(_on_roll_button_pressed)
+	#if medium_button.pressed.is_connected(_on_roll_button_pressed):
+	#	medium_button.pressed.disconnect(_on_roll_button_pressed)
+	#if hard_button.pressed.is_connected(_on_roll_button_pressed):
+	#	hard_button.pressed.disconnect(_on_roll_button_pressed)
 
-	easy_button.pressed.connect(_on_roll_button_pressed.bind("Easy"))
-	medium_button.pressed.connect(_on_roll_button_pressed.bind("Medium"))
-	hard_button.pressed.connect(_on_roll_button_pressed.bind("Hard"))
+	#easy_button.pressed.connect(_on_roll_button_pressed.bind("Easy"))
+	#medium_button.pressed.connect(_on_roll_button_pressed.bind("Medium"))
+	#hard_button.pressed.connect(_on_roll_button_pressed.bind("Hard"))
 	
 	EasyButton.pressed.connect(_on_easy_button_pressed)
 	MediumButton.pressed.connect(_on_medium_button_pressed)
@@ -203,6 +218,10 @@ func get_level_from_exp(exp: int) -> int:
 			level = lvl
 	return level
 
+func update_level_indicators():
+	str_indicator.frame = min(get_level_from_exp(creature_stats["Fuerza"]), 5)
+	def_indicator.frame = min(get_level_from_exp(creature_stats["Defensa"]), 5)
+	mag_indicator.frame = min(get_level_from_exp(creature_stats["Magia"]), 5)
 
 func set_buttons_enabled(enabled: bool):
 	easy_button.disabled = !enabled
@@ -271,15 +290,20 @@ func start_roll(difficulty: String):
 
 	#dice_result_label.text = "🎲Tirada:" + "\n"  + " %s  %d < %d " % [difficulty, roll, threshold]#"🎲 Tirada: %d" % roll  + "\n"  + difficulty + ": %d" % [difficulty, threshold]
 	dice_textureRect.visible = true
+	# Play random rolling sound
+	var roll_sounds = [Rolling_dice, Rolling_dice2]
+	AudioStreamPlayer_dice.stream = roll_sounds[randi() % roll_sounds.size()]
+	AudioStreamPlayer_dice.play()
+	
 	roll_dice_animation(roll)
 	#dice_result_label.visible = true
 	await get_tree().create_timer(3.0).timeout
 	if success:
 		audio_acierto.play()
-		dialog_label.text = "🎲Tirada:" + " %d " % roll + "\n" + "¡%s +%d puntos de experiencia (%s)!" % [stat, exp_gained, difficulty]
+		dialog_label.text = "Tirada:" + " %d " % roll + "\n" + "¡%s +%d puntos de experiencia (%s)!" % [stat, exp_gained, difficulty]
 	else:
 		audio_falla.play()
-		dialog_label.text = "Fallaste la tirada de %s (Tirada: %d < %d). No ganaste experiencia." % [difficulty, roll, threshold]
+		dialog_label.text = "Fallaste la tirada de %s (Tirada: %d < %d)." % [difficulty, roll, threshold] + "\n" + " No ganaste experiencia." 
 
 	dialog_panel.visible = true
 	#await get_tree().create_timer(3.0).timeout
@@ -296,7 +320,7 @@ func start_roll(difficulty: String):
 	if turn_in_day > 3:
 		turn_in_day = 1
 		day_count += 1
-		if day_count > 7:
+		if day_count > 6:
 			GlobalVars.fuerza_level = get_level_from_exp(creature_stats["Fuerza"])
 			GlobalVars.magia_level = get_level_from_exp(creature_stats["Magia"])
 			GlobalVars.defensa_level = get_level_from_exp(creature_stats["Defensa"])
@@ -304,77 +328,86 @@ func start_roll(difficulty: String):
 			return
 
 	update_stat_display()
+	update_needle_frame()
 	set_buttons_enabled(true)
-
+	
+	update_level_indicators()  
 	await get_tree().create_timer(0.5).timeout  # Small pause before next narrative
 
 	show_roll_narrative()  # ← Automatically show next narrative
 	
 	
+func update_needle_frame():
+	day_indicator.text = "Día %d" % day_count
+	needle_sprite.frame = turn_in_day - 1  # Frame 0, 1, 2
+	
+	
+# func _on_roll_button_pressed(difficulty: String):
+# 	set_buttons_enabled(false)  # 🔒 desactiva botones
+
+# 	var roll = randi_range(1, 20)
+# 	var stat = stat_order[current_stat_index]
+# 	var exp_gained = 0
+# 	var success = false
+# 	var threshold = 0
+
+# 	match difficulty:
+# 		"Easy":
+# 			threshold = 5
+# 			exp_gained = 5
+# 		"Medium":
+# 			threshold = 11
+# 			exp_gained = 10
+# 		"Hard":
+# 			threshold = 16
+# 			exp_gained = 20
+
+# 	if roll >= threshold:
+# 		success = true
+# 		creature_stats[stat] += exp_gained
+	
+# 	dice_result_label.text = "🎲 Tirada: %d" % roll + "\n " + difficulty
+# #3d model animation # This line was already a comment, I've kept it as is.
 	
 	
 	
-func _on_roll_button_pressed(difficulty: String):
-	set_buttons_enabled(false)  # 🔒 desactiva botones
+# 	dice_result_label.visible = true
 
-	var roll = randi_range(1, 20)
-	var stat = stat_order[current_stat_index]
-	var exp_gained = 0
-	var success = false
-	var threshold = 0
+# 	if success:
+# 		dialog_label.text = "¡%s +%d puntos de experiencia (%s)!" % [stat, exp_gained, difficulty]
+# 	else:
+# 		dialog_label.text = "Fallaste la tirada de %s (Tirada: %d < %d). No ganaste experiencia." % [difficulty, roll, threshold]
 
-	match difficulty:
-		"Easy":
-			threshold = 5
-			exp_gained = 5
-		"Medium":
-			threshold = 11
-			exp_gained = 10
-		"Hard":
-			threshold = 16
-			exp_gained = 20
+# 	dialog_panel.visible = true
 
-	if roll >= threshold:
-		success = true
-		creature_stats[stat] += exp_gained
+# 	await get_tree().create_timer(2.0).timeout
+
+# 	dice_result_label.visible = false
+# 	dialog_panel.visible = false
+
+# 	current_stat_index = (current_stat_index + 1) % stat_order.size()
+
+# 	# Avanzar turno y día
+# 	turn_in_day += 1
+# 	if turn_in_day > 3:
+# 		turn_in_day = 1
+# 		day_count += 1
+
+# 		# Verificar fin de semana
+# 		if day_count > 7:
+# 			GlobalVars.fuerza_level = get_level_from_exp(creature_stats["Fuerza"])
+# 			GlobalVars.magia_level = get_level_from_exp(creature_stats["Magia"])
+# 			GlobalVars.defensa_level = get_level_from_exp(creature_stats["Defensa"])
+
+
+# 			get_tree().change_scene_to_file("res://combat.tscn")
+# 			return
+
+# 	update_stat_display()
+# 	set_buttons_enabled(true)  # 🔓 reactiva botones
+# 	show_roll_narrative() # <-- Start new roll phase
 	
-	dice_result_label.text = "🎲 Tirada: %d" % roll + "\n " + difficulty
-#3d model animation
 	
 	
 	
-	dice_result_label.visible = true
-
-	if success:
-		dialog_label.text = "¡%s +%d puntos de experiencia (%s)!" % [stat, exp_gained, difficulty]
-	else:
-		dialog_label.text = "Fallaste la tirada de %s (Tirada: %d < %d). No ganaste experiencia." % [difficulty, roll, threshold]
-
-	dialog_panel.visible = true
-
-	await get_tree().create_timer(2.0).timeout
-
-	dice_result_label.visible = false
-	dialog_panel.visible = false
-
-	current_stat_index = (current_stat_index + 1) % stat_order.size()
-
-	# Avanzar turno y día
-	turn_in_day += 1
-	if turn_in_day > 3:
-		turn_in_day = 1
-		day_count += 1
-
-		# Verificar fin de semana
-		if day_count > 7:
-			GlobalVars.fuerza_level = get_level_from_exp(creature_stats["Fuerza"])
-			GlobalVars.magia_level = get_level_from_exp(creature_stats["Magia"])
-			GlobalVars.defensa_level = get_level_from_exp(creature_stats["Defensa"])
-
-
-			get_tree().change_scene_to_file("res://combat.tscn")
-			return
-
-	update_stat_display()
-	set_buttons_enabled(true)  # 🔓 reactiva botones
-	show_roll_narrative() # <-- Start new roll phase
+	

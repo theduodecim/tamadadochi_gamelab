@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dhtgtwrde7te5"]
+[gd_scene load_steps=54 format=3 uid="uid://dhtgtwrde7te5"]
 
 [ext_resource type="Script" uid="uid://c64sm3dwr5046" path="res://combat.gd" id="1_raif2"]
 [ext_resource type="Texture2D" uid="uid://6h3fb2nta6bt" path="res://assets/img/background_combate.png" id="2_u30h6"]
@@ -8,6 +8,15 @@
 [ext_resource type="Script" uid="uid://cod4d5krehvy" path="res://OptionSelector.gd" id="5_u30h6"]
 [ext_resource type="AudioStream" uid="uid://cs6qetwp6rjbg" path="res://assets/music/background_music_combat.mp3" id="7_v7dqf"]
 [ext_resource type="FontFile" uid="uid://dqhnvcxigxgq6" path="res://assets/fonts/Pokemon Classic.ttf" id="8_syqip"]
+[ext_resource type="AudioStream" uid="uid://c28e0ht2fjxna" path="res://assets/music/acierto.mp3" id="9_3jjqr"]
+[ext_resource type="AudioStream" uid="uid://cg0wxwn2y36tv" path="res://assets/music/falla.mp3" id="10_0fwoj"]
+[ext_resource type="Texture2D" uid="uid://b64q1smmxgi03" path="res://assets/img/stats_dia_ui1.png" id="11_ku7t1"]
+[ext_resource type="Texture2D" uid="uid://dw1qlkxifj7hl" path="res://assets/img/aguja_turnos.png" id="12_vd66s"]
+[ext_resource type="Texture2D" uid="uid://duf2atd0gub2u" path="res://assets/img/pastilla_stat_fuerza.png" id="13_emiek"]
+[ext_resource type="Texture2D" uid="uid://jvdx3bol6oy5" path="res://assets/img/pastilla_stat_def.png" id="14_mwu64"]
+[ext_resource type="Texture2D" uid="uid://bjk5psqs0v8m7" path="res://assets/img/pastilla_stat_magia.png" id="15_3qp1m"]
+[ext_resource type="PackedScene" uid="uid://njmgu0526fjb" path="res://assets/3d_model/DADO.glb" id="16_0fwoj"]
+[ext_resource type="Texture2D" uid="uid://1au5g7kpsh4d" path="res://assets/img/pastilla_stat_vida_enemigo.png" id="17_ku7t1"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_v7dqf"]
 viewport_path = NodePath("Control2/Node3D2/SubViewport")
@@ -27,6 +36,391 @@ line_spacing = 1.0
 font = ExtResource("8_syqip")
 font_size = 14
 
+[sub_resource type="LabelSettings" id="LabelSettings_gwxrf"]
+font = ExtResource("8_syqip")
+font_size = 13
+
+[sub_resource type="LabelSettings" id="LabelSettings_s8h3r"]
+font = ExtResource("8_syqip")
+font_size = 13
+
+[sub_resource type="LabelSettings" id="LabelSettings_bs7xg"]
+font = ExtResource("8_syqip")
+font_size = 13
+
+[sub_resource type="LabelSettings" id="LabelSettings_psfgy"]
+font = ExtResource("8_syqip")
+font_size = 13
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ku7t1"]
+
+[sub_resource type="Animation" id="Animation_efxa6"]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.148353, 5.4559, 0.0174533)]
+}
+
+[sub_resource type="Animation" id="Animation_4c57u"]
+resource_name = "roll_1"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.148353, 1.53802, 0.0174533)]
+}
+
+[sub_resource type="Animation" id="Animation_82xsv"]
+resource_name = "roll_10"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(-0.797615, -6.28319, -0.383972)]
+}
+
+[sub_resource type="Animation" id="Animation_getpj"]
+resource_name = "roll_11"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(2.03854, -0.558505, -0.785398)]
+}
+
+[sub_resource type="Animation" id="Animation_ryguw"]
+resource_name = "roll_12"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(-0.256563, -0.0174533, -1.47131)]
+}
+
+[sub_resource type="Animation" id="Animation_d13ii"]
+resource_name = "roll_13"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.148353, 1.53764, -5.26217)]
+}
+
+[sub_resource type="Animation" id="Animation_1u8w0"]
+resource_name = "roll_14"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(-5.39307, 2.54993, 3.35976)]
+}
+
+[sub_resource type="Animation" id="Animation_0odxb"]
+resource_name = "roll_15"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.418879, 6.28319, -0.651008)]
+}
+
+[sub_resource type="Animation" id="Animation_lswn8"]
+resource_name = "roll_16"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.959931, -2.98975, -6.353)]
+}
+
+[sub_resource type="Animation" id="Animation_a6jrf"]
+resource_name = "roll_17"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.331613, 0.998328, -1.07861)]
+}
+
+[sub_resource type="Animation" id="Animation_xuqvo"]
+resource_name = "roll_18"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(-1.20428, -5.45241, -3.59189)]
+}
+
+[sub_resource type="Animation" id="Animation_qsp4k"]
+resource_name = "roll_19"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(-5.39132, -3.66519, -5.40528)]
+}
+
+[sub_resource type="Animation" id="Animation_dg77c"]
+resource_name = "roll_2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.148353, 5.4559, 0.0174533)]
+}
+
+[sub_resource type="Animation" id="Animation_kq58d"]
+resource_name = "roll_20"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(-3.2306, -4.70192, 3.05607)]
+}
+
+[sub_resource type="Animation" id="Animation_ycdy4"]
+resource_name = "roll_3"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(3.44528, -5.26217, -0.472984)]
+}
+
+[sub_resource type="Animation" id="Animation_w48qg"]
+resource_name = "roll_4"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(-4.44535, -6.28319, 0.418879)]
+}
+
+[sub_resource type="Animation" id="Animation_vivmo"]
+resource_name = "roll_5"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.148353, -0.963422, 4.69668)]
+}
+
+[sub_resource type="Animation" id="Animation_2cqfq"]
+resource_name = "roll_6"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.553269, -3.32485, -2.38936)]
+}
+
+[sub_resource type="Animation" id="Animation_yaehf"]
+resource_name = "roll_7"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.553269, 0.591667, -0.785398)]
+}
+
+[sub_resource type="Animation" id="Animation_074og"]
+resource_name = "roll_8"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(-3.36499, -1.57429, -5.59727)]
+}
+
+[sub_resource type="Animation" id="Animation_cegan"]
+resource_name = "roll_9"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DADO:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.148353, 1.53802, 0.0174533), Vector3(0.148353, -6.28319, 0.0174533), Vector3(0.148353, 2.95484, 0.0174533), Vector3(0.418879, -3.58142, -4.79442)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_efxa6"]
+_data = {
+&"RESET": SubResource("Animation_efxa6"),
+&"roll_1": SubResource("Animation_4c57u"),
+&"roll_10": SubResource("Animation_82xsv"),
+&"roll_11": SubResource("Animation_getpj"),
+&"roll_12": SubResource("Animation_ryguw"),
+&"roll_13": SubResource("Animation_d13ii"),
+&"roll_14": SubResource("Animation_1u8w0"),
+&"roll_15": SubResource("Animation_0odxb"),
+&"roll_16": SubResource("Animation_lswn8"),
+&"roll_17": SubResource("Animation_a6jrf"),
+&"roll_18": SubResource("Animation_xuqvo"),
+&"roll_19": SubResource("Animation_qsp4k"),
+&"roll_2": SubResource("Animation_dg77c"),
+&"roll_20": SubResource("Animation_kq58d"),
+&"roll_3": SubResource("Animation_ycdy4"),
+&"roll_4": SubResource("Animation_w48qg"),
+&"roll_5": SubResource("Animation_vivmo"),
+&"roll_6": SubResource("Animation_2cqfq"),
+&"roll_7": SubResource("Animation_yaehf"),
+&"roll_8": SubResource("Animation_074og"),
+&"roll_9": SubResource("Animation_cegan")
+}
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0fwoj"]
+viewport_path = NodePath("dicePanel/Node3D/DiceSubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_emiek"]
+font = ExtResource("8_syqip")
+font_size = 20
+
 [sub_resource type="LabelSettings" id="LabelSettings_ilamk"]
 font = ExtResource("8_syqip")
 
@@ -34,19 +428,17 @@ font = ExtResource("8_syqip")
 script = ExtResource("1_raif2")
 
 [node name="background" type="TextureRect" parent="."]
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -18.0
-offset_top = -3.0
-offset_right = 1262.0
-offset_bottom = 717.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1281.0
+offset_bottom = 719.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.924516, 0.92)
 size_flags_vertical = 4
 texture = ExtResource("2_u30h6")
-stretch_mode = 3
 
 [node name="Control2" type="Control" parent="."]
 layout_mode = 3
@@ -61,10 +453,10 @@ offset_bottom = 43.0
 transparent_bg = true
 
 [node name="Camera3D" type="Camera3D" parent="Control2/Node3D2/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.19786, 2.16972, 3.7791)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4574, 2.16972, 3.7791)
 
 [node name="heroe" parent="Control2/Node3D2/SubViewport" instance=ExtResource("3_fvoc2")]
-transform = Transform3D(0.857167, 0, -0.515038, 0, 1, 0, 0.515038, 0, 0.857167, -8.24763, 0, 0.268594)
+transform = Transform3D(0.857167, 0, -0.515038, 0, 1, 0, 0.515038, 0, 0.857167, -13.625, 0, 0.268594)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Control2/Node3D2/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53743, 4.9542, 4.40371)
@@ -72,10 +464,10 @@ light_energy = 0.2
 
 [node name="TextureRect" type="TextureRect" parent="Control2"]
 layout_mode = 0
-offset_left = 559.0
-offset_top = 218.0
-offset_right = 1071.0
-offset_bottom = 730.0
+offset_left = 619.0
+offset_top = 236.0
+offset_right = 1131.0
+offset_bottom = 748.0
 scale = Vector2(0.4, 0.4)
 texture = SubResource("ViewportTexture_v7dqf")
 
@@ -112,6 +504,7 @@ theme = ExtResource("3_ga4lu")
 texture = SubResource("ViewportTexture_fvoc2")
 
 [node name="StatPanel" type="Panel" parent="."]
+visible = false
 offset_left = 1006.0
 offset_top = 237.0
 offset_right = 1046.0
@@ -143,10 +536,10 @@ label_settings = SubResource("LabelSettings_fvoc2")
 autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="."]
-offset_left = 315.0
-offset_top = 470.0
-offset_right = 695.0
-offset_bottom = 650.0
+offset_left = 341.0
+offset_top = 537.0
+offset_right = 721.0
+offset_bottom = 717.0
 scale = Vector2(1.74161, 0.963361)
 theme = ExtResource("3_ga4lu")
 
@@ -210,32 +603,194 @@ theme = ExtResource("3_ga4lu")
 alignment = 0
 
 [node name="CombatLogPanel" type="Panel" parent="."]
-offset_left = 972.0
-offset_top = 467.0
-offset_right = 1012.0
-offset_bottom = 507.0
-scale = Vector2(4.45216, 4.48)
+offset_left = 1015.0
+offset_top = 533.0
+offset_right = 1275.0
+offset_bottom = 713.0
 theme = ExtResource("3_ga4lu")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CombatLogPanel"]
-layout_mode = 0
-offset_left = 1.11111
-offset_top = 2.64706
-offset_right = 301.111
-offset_bottom = 144.202
-scale = Vector2(0.128, 0.238)
-text = "l"
+[node name="VBoxContainer" type="VBoxContainer" parent="CombatLogPanel"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CombatLogPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CombatLogPanel/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_ga4lu")
+text = " "
+fit_content = true
+scroll_following = true
 tab_size = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_v7dqf")
+parameters/looping = true
+
+[node name="AudioStreamPlayer_Acierto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_3jjqr")
+volume_db = 24.0
+
+[node name="AudioStreamPlayer_Falla" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_0fwoj")
+volume_db = 8.0
+
+[node name="TurnIndicator" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1060.0
+offset_top = -155.0
+offset_right = 1100.0
+offset_bottom = -115.0
+
+[node name="BaseTexture" type="TextureRect" parent="TurnIndicator"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 299.0
+offset_right = 251.0
+offset_bottom = 610.0
+texture = ExtResource("11_ku7t1")
+
+[node name="NeedleSprite" type="Sprite2D" parent="TurnIndicator"]
+position = Vector2(22, 301)
+texture = ExtResource("12_vd66s")
+centered = false
+hframes = 3
+frame = 2
+
+[node name="day_indicator" type="Label" parent="TurnIndicator"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 530.0
+offset_right = 185.0
+offset_bottom = 556.0
+text = "Día 7"
+label_settings = SubResource("LabelSettings_gwxrf")
+horizontal_alignment = 1
+
+[node name="Fuerza" type="Label" parent="TurnIndicator"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 390.0
+offset_right = 184.0
+offset_bottom = 416.0
+text = "Fuerza"
+label_settings = SubResource("LabelSettings_s8h3r")
+horizontal_alignment = 1
+
+[node name="Defensa" type="Label" parent="TurnIndicator"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 421.0
+offset_right = 192.0
+offset_bottom = 447.0
+text = "Defensa"
+label_settings = SubResource("LabelSettings_bs7xg")
+horizontal_alignment = 1
+
+[node name="Magia" type="Label" parent="TurnIndicator"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 450.0
+offset_right = 171.0
+offset_bottom = 476.0
+text = "Magia"
+label_settings = SubResource("LabelSettings_psfgy")
+horizontal_alignment = 1
+
+[node name="Str_indicator" type="Sprite2D" parent="TurnIndicator"]
+position = Vector2(138, 455)
+texture = ExtResource("13_emiek")
+hframes = 6
+
+[node name="Def_indicator" type="Sprite2D" parent="TurnIndicator"]
+position = Vector2(138, 456)
+texture = ExtResource("14_mwu64")
+hframes = 6
+
+[node name="Mag_indicator" type="Sprite2D" parent="TurnIndicator"]
+position = Vector2(138, 456)
+texture = ExtResource("15_3qp1m")
+hframes = 6
+
+[node name="dicePanel" type="Panel" parent="."]
+offset_left = 617.0
+offset_top = 218.0
+offset_right = 720.0
+offset_bottom = 306.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ku7t1")
+
+[node name="Node3D" type="Node3D" parent="dicePanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.745886, 0, 0)
+
+[node name="DiceSubViewport" type="SubViewport" parent="dicePanel/Node3D"]
+process_mode = 3
+transparent_bg = true
+
+[node name="Camera3D" type="Camera3D" parent="dicePanel/Node3D/DiceSubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.361, 1.063, 3.632)
+current = true
+
+[node name="DADO" parent="dicePanel/Node3D/DiceSubViewport" instance=ExtResource("16_0fwoj")]
+transform = Transform3D(0.674875, -0.120599, -0.728011, 0.0172607, 0.988865, -0.147809, 0.73773, 0.0871868, 0.669442, -8.35508, 0.904, 0.314)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="dicePanel/Node3D/DiceSubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1004, 0, 0)
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="dicePanel/Node3D/DiceSubViewport"]
+physics_interpolation_mode = 1
+libraries = {
+&"": SubResource("AnimationLibrary_efxa6")
+}
+
+[node name="TextureRect" type="TextureRect" parent="dicePanel/Node3D"]
+offset_left = 1080.0
+offset_right = 2080.0
+offset_bottom = 1000.0
+scale = Vector2(0.2, 0.2)
+texture = SubResource("ViewportTexture_0fwoj")
+
+[node name="Label" type="Label" parent="dicePanel"]
+layout_mode = 0
+offset_left = -1.00001
+offset_top = 2.0
+offset_right = 225.0
+offset_bottom = 195.0
+scale = Vector2(0.455, 0.455)
+theme = ExtResource("3_ga4lu")
+label_settings = SubResource("LabelSettings_emiek")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="LifeControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LifeCounter" type="Sprite2D" parent="LifeControl"]
+position = Vector2(728, 259)
+texture = ExtResource("17_ku7t1")
+hframes = 6
+frame = 4
 
 [node name="EndPanel" type="Panel" parent="."]
 visible = false
-offset_left = 634.0
-offset_top = 231.0
-offset_right = 804.0
-offset_bottom = 331.0
+offset_left = 621.0
+offset_top = 191.0
+offset_right = 791.0
+offset_bottom = 291.0
 
 [node name="Label" type="Label" parent="EndPanel"]
 layout_mode = 0

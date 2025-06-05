@@ -12,6 +12,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nx4x6")
@@ -28,21 +32,23 @@ size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(28.76, 16.16)
-color = Color(0, 0, 0, 0.188235)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.0470588, 0.105882, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 225.0
-offset_top = 103.0
-offset_right = -39.0
-offset_bottom = -330.0
+offset_left = 227.0
+offset_top = 49.0
+offset_right = -37.0
+offset_bottom = -384.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.845421, 1.99151)
@@ -68,9 +74,9 @@ autowrap_mode = 3
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 2
 offset_left = 140.0
-offset_top = 310.0
+offset_top = 324.0
 offset_right = 204.0
-offset_bottom = 374.0
+offset_bottom = 388.0
 rotation = -0.734703
 texture_normal = ExtResource("3_c5jh5")
 flip_h = true
@@ -95,10 +101,10 @@ flat = true
 [node name="name_box" type="HBoxContainer" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 575.0
-offset_top = 382.0
-offset_right = 775.0
-offset_bottom = 413.0
+offset_left = 775.0
+offset_top = 418.0
+offset_right = 975.0
+offset_bottom = 449.0
 
 [node name="LineEdit" type="LineEdit" parent="name_box"]
 layout_mode = 2
